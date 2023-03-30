@@ -1,6 +1,36 @@
 extends ./layout/index
 
+block slider 
+    .slider 
+        h1 Rio de Janeiro 
+        em Adventure
+
 block content
     main.container.mt-5 
-        .row 
-            h1 #{page}
+        h2.text-center.mb-5 About us 
+        .row.mb-5 
+            .col-md-6
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit scelerisque mauris pellentesque pulvinar. Orci sagittis eu volutpat odio facilisis. Curabitur vitae nunc sed velit. Habitasse platea dictumst vestibulum rhoncus est. Vel turpis nunc eget lorem dolor sed. In dictum non consectetur a erat nam at. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus. Purus non enim praesent elementum. Sem fringilla ut morbi tincidunt.
+                p Ut venenatis tellus in metus vulputate eu scelerisque. Magna eget est lorem ipsum dolor sit amet consectetur adipiscing. Massa tincidunt dui ut ornare lectus sit. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. Sit amet consectetur adipiscing elit pellentesque habitant. Nunc eget lorem dolor sed viverra. Id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. Mauris pellentesque pulvinar pellentesque habitant morbi. Id donec ultrices tincidunt arcu. Proin libero nunc consequat interdum varius sit.
+            .col-md-6 
+                img(src="/img/inicio_nosotros.jpg", alt="us image", class="img-fluid")
+
+    .container
+        h2.text-center.mt-5 Last chance. Don´t miss them out
+        //- p= JSON.stringify(travels)
+        include ./layout/block_travel
+
+    .descuento  
+        .container 
+            .row 
+                .col-md-6 
+                    .contenido 
+                        h3 5% OFF!!!
+                        p.titulo Go to CANADA today
+                        p.fecha June 20, 2023 - June 30, 2023
+                        p.precio $2.500
+
+    .container 
+        h2.mt-5.text-center Comments 
+        .row
+            include ./layout/block_comments

@@ -1,31 +1,23 @@
 import express from 'express';
+import { pageHome, 
+        pageAbout, 
+        pageTravels, 
+        pageComments, 
+        pageDetailTravel
+    } from '../controlers/pagesController.js';
+import { saveComment } from '../controlers/commentsController.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('home', {
-        page: "Home"
-    });
-});
+router.get('/', pageHome);
 
-router.get('/about', (req, res) => {
-    const travels = 'Flight to Germany';
-    res.render('aboutus', {
-        page: "About us"
-    })
-});
+router.get('/about', pageAbout);
 
-router.get('/travels', (req, res) => {
-    res.render('travels', {
-        page: "All flights"
-    })
-});
+router.get('/travels', pageTravels);
+router.get('/travels/:slug', pageDetailTravel);
 
-router.get('/comments', (req, res) => {
-    res.render('comments', {
-        page: "What they say about us"
-    })
-});
+router.get('/comments', pageComments);
+router.post('/comments', saveComment);
 
 
 export default router;

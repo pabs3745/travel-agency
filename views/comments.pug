@@ -2,5 +2,30 @@ extends ./layout/index
 
 block content
     main.container.mt-5 
-        .row 
-            h1 #{page}
+        h1.text-center.mt-5 #{page}
+        blockquote.text-center Read what they say about us 
+        .row
+            include ./layout/block_comments
+            .col-md-12
+                h2.d-block.w-100.text-center Add a comment
+
+                if(errores) 
+                    each error in errores
+                        .alert.col.alert-danger.text-center= error.mensaje
+            
+            //- p= JSON.stringify(errores)
+
+            .row.justify-content-center.col
+                .col-md-8 
+                    form(action="/comments" method="POST")
+                        .form-group 
+                            label(for="nombre") Name: 
+                            input#nombre(type="text", placeholder="Your name", name="nombre", class="form-control", value= nombre)  
+                        .form-group 
+                            label(for="correo") email: 
+                            input#correo(value= correo, type="email", placeholder="Your email", name="correo", class="form-control")  
+                        .form-group 
+                            label(for="mensaje") Message: 
+                            textarea#mensaje(class="form-control" name="mensaje", cols="30", rows="5" placeholder="Your comment")= mensaje
+                        
+                        input.btn.btn-success.btn-block(type="submit")

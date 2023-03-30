@@ -1,6 +1,7 @@
 extends ./layout/index
 
 block content
+    h1(class="mt-5 text-center") #{page}
     main.container.mt-5 
-        .row 
-            h1 #{page}
+        include ./layout/block_travel
+        //- p= JSON.stringify(travels) // check all good
